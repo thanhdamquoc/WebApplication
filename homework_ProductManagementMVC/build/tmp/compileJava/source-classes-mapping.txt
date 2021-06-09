@@ -1,7 +1,13 @@
-com/codegym/model/Product.java
- com.codegym.model.Product
+com/codegym/dao/SQLConnection.java
+ com.codegym.dao.SQLConnection
 com/codegym/service/ProductService.java
  com.codegym.service.ProductService
+com/codegym/model/Product.java
+ com.codegym.model.Product
+com/codegym/dao/ProductDAO.java
+ com.codegym.dao.ProductDAO
+com/codegym/dao/ProductDAOImpl.java
+ com.codegym.dao.ProductDAOImpl
 com/codegym/service/ProductServiceImpl.java
  com.codegym.service.ProductServiceImpl
 com/codegym/controller/ProductServlet.java

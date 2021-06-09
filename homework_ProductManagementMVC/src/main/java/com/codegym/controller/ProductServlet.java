@@ -101,12 +101,11 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void addProduct(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         double price = Double.parseDouble(request.getParameter("price"));
         String description = request.getParameter("description");
         String origin = request.getParameter("origin");
-        productService.add(new Product(id, name, price, description, origin));
+        productService.add(new Product(name, price, description, origin));
         try {
             response.sendRedirect("/products");
         } catch (IOException e) {

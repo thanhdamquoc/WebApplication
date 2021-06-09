@@ -37,7 +37,7 @@
   </c:forEach>
   <form method="post" action="/products?action=add">
     <tr>
-      <td><input type="text" size="2" name="id"></td>
+      <td></td>
       <td><input type="text" size="5" name="name"></td>
       <td><input type="text" size="5" name="price"></td>
       <td><input type="text" size="5" name="description"></td>
