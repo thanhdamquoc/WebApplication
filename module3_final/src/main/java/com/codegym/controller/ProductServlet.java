@@ -73,7 +73,7 @@ public class ProductServlet extends HttpServlet {
         String q = request.getParameter("q");
         List<Product> products = productService.findAll();
         if (q != null) {
-
+            products = productService.search(q);
         }
         String message = request.getParameter("message");
 

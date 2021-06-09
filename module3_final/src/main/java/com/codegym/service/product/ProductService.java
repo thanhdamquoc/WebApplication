@@ -33,4 +33,9 @@ public class ProductService implements IProductService{
     public boolean remove(int id) {
         return productDAO.remove(id);
     }
+
+    @Override
+    public List<Product> search(String q) {
+        return productDAO.search(q);
+    }
 }
