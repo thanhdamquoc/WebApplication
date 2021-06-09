@@ -32,7 +32,7 @@
         <th scope="col">Product List</th>
     </tr>
     <tr>
-        <table class="table">
+        <table class="table table-striped">
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Product Name</th>
@@ -57,7 +57,10 @@
                         %>
                         <%=categoryName%>
                     </td>
-                    <td><a href="/products?action=edit&id=${product.id}" class="btn btn-primary">Edit</a>|<a href="/products?action=remove&id=${product.id}" class="btn btn-danger">Remove</a></td>
+                    <td>
+                        <a href="/products?action=edit&id=${product.id}" class="btn btn-primary">Edit</a>
+                        |<a href="/products?action=remove&id=${product.id}" class="btn btn-danger">Remove</a>
+                    </td>
                 </tr>
             </c:forEach>
         </table>
