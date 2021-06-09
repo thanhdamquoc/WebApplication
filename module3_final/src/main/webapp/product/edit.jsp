@@ -23,7 +23,7 @@
     <input type="text" name="description" value="${requestScope['product'].description}"><br>
     <lable>Category</lable><br>
     <input type="text" name="categoryId" required value="${requestScope['product'].categoryId}"><br>
-    <input type="submit" value="Edit" class="btn btn-primary">|<a href="/products" class="btn btn-primary">Back</a><br>
+    <input type="submit" value="Update" class="btn btn-success">|<a href="/products" class="btn btn-secondary">Back</a><br>
 </form>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

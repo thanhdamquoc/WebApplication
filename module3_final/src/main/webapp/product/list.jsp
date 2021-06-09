@@ -1,5 +1,10 @@
+<%@ page import="com.codegym.service.category.CategoryService" %>
+<%@ page import="com.codegym.service.category.ICategoryService" %>
+<%@ page import="com.codegym.model.Category" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%ICategoryService categoryService = new CategoryService();%>
+
 <html>
 <head>
     <title>Product List</title>
@@ -8,7 +13,7 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="col"><a class="btn btn-primary" href="/products?action=add">+Add new product</a></div>
+        <div class="col" style="text-align: left"><a class="btn btn-primary" href="/products?action=add">+Add new product</a></div>
         <div class="col">
             <form action="/products" method="get">
                 <input placeholder="Search" type="text" name="q">
@@ -44,8 +49,15 @@
                     <td>${product.price}</td>
                     <td>${product.count}</td>
                     <td>${product.color}</td>
-                    <td>${product.categoryId}</td>
-                    <td><a href="/products?action=edit&id=${product.id}" class="btn btn-primary">Edit</a>|<a href="/products?action=remove&id=${product.id}" class="btn btn-primary">Remove</a></td>
+                    <td>
+                        <c:set value="${product.categoryId}" var="categoryId"/>
+                        <%
+                            int categoryId = (Integer) pageContext.getAttribute("categoryId");
+                            String categoryName = categoryService.findById(categoryId).getName();
+                        %>
+                        <%=categoryName%>
+                    </td>
+                    <td><a href="/products?action=edit&id=${product.id}" class="btn btn-primary">Edit</a>|<a href="/products?action=remove&id=${product.id}" class="btn btn-danger">Remove</a></td>
                 </tr>
             </c:forEach>
         </table>

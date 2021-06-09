@@ -1,6 +1,9 @@
 package com.codegym.controller;
 
+import com.codegym.model.Category;
 import com.codegym.model.Product;
+import com.codegym.service.category.CategoryService;
+import com.codegym.service.category.ICategoryService;
 import com.codegym.service.product.IProductService;
 import com.codegym.service.product.ProductService;
 
@@ -13,6 +16,7 @@ import java.util.List;
 @WebServlet(name = "ProductServlet", value = "/products")
 public class ProductServlet extends HttpServlet {
     IProductService productService = new ProductService();
+    ICategoryService categoryService = new CategoryService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -50,20 +54,25 @@ public class ProductServlet extends HttpServlet {
         }
     }
 
+    private void showAddForm(HttpServletRequest request, HttpServletResponse response) {
+        List<Category> categories = categoryService.findAll();
+        request.setAttribute("categories", categories);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/product/add.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void removeProduct(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         boolean isRemoved = productService.remove(id);
         String message = isRemoved ? "removeSuccess" : "removeFail";
         try {
             response.sendRedirect("/products?message="+message);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void showAddForm(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            response.sendRedirect("/product/add.jsp");
         } catch (IOException e) {
             e.printStackTrace();
         }

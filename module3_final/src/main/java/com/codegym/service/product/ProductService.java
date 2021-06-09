@@ -1,7 +1,7 @@
 package com.codegym.service.product;
 
-import com.codegym.dao.productDAO.IProductDAO;
-import com.codegym.dao.productDAO.ProductDAO;
+import com.codegym.dao.product.IProductDAO;
+import com.codegym.dao.product.ProductDAO;
 import com.codegym.model.Product;
 
 import java.util.List;
