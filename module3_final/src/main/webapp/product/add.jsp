@@ -22,7 +22,7 @@
     <input type="text" name="description"><br>
     <lable>Category</lable><br>
     <input type="text" name="categoryId" required><br>
-    <input type="submit" value="Add">|<a href="/products">Back</a><br>
+    <input type="submit" value="Add" class="btn btn-primary">|<a href="/products" class="btn btn-primary">Back</a><br>
 </form>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
