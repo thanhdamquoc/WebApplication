@@ -70,7 +70,11 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void listProducts(HttpServletRequest request, HttpServletResponse response) {
+        String q = request.getParameter("q");
         List<Product> products = productService.findAll();
+        if (q != null) {
+
+        }
         String message = request.getParameter("message");
 
         request.setAttribute("products", products);
