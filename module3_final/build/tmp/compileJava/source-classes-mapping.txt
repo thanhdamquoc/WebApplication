@@ -20,9 +20,9 @@ com/codegym/dao/product/ProductDAO.java
  com.codegym.dao.product.ProductDAO
 com/codegym/dao/product/IProductDAO.java
  com.codegym.dao.product.IProductDAO
-com/codegym/controller/ProductServlet.java
- com.codegym.controller.ProductServlet
-com/codegym/service/category/CategoryService.java
- com.codegym.service.category.CategoryService
 com/codegym/dao/category/CategoryDAO.java
  com.codegym.dao.category.CategoryDAO
+com/codegym/service/category/CategoryService.java
+ com.codegym.service.category.CategoryService
+com/codegym/controller/ProductServlet.java
+ com.codegym.controller.ProductServlet

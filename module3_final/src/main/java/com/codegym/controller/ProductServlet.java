@@ -43,7 +43,10 @@ public class ProductServlet extends HttpServlet {
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Product product = productService.findById(id);
+        List<Category> categories = categoryService.findAll();
+
         request.setAttribute("product", product);
+        request.setAttribute("categories", categories);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/product/edit.jsp");
         try {
             dispatcher.forward(request, response);
@@ -129,9 +132,11 @@ public class ProductServlet extends HttpServlet {
         Product product = new Product(name, price, count, color, description, categoryId);
         boolean isEdited = productService.update(id, product);
         String message = isEdited ? "editSuccess" : "editFail";
+        List<Category> categories = categoryService.findAll();
 
         request.setAttribute("product", product);
         request.setAttribute("message", message);
+        request.setAttribute("categories", categories);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/product/edit.jsp");
         try {
@@ -152,8 +157,10 @@ public class ProductServlet extends HttpServlet {
         int categoryId = Integer.parseInt(request.getParameter("categoryId"));
         boolean isAdded = productService.add(new Product(name, price, count, color, description, categoryId));
         String message = isAdded ? "addSuccess" : "addFail";
+        List<Category> categories = categoryService.findAll();
 
         request.setAttribute("message", message);
+        request.setAttribute("categories", categories);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/product/add.jsp");
         try {
             dispatcher.forward(request, response);

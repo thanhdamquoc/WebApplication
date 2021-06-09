@@ -22,7 +22,15 @@
     <lable>Description</lable><br>
     <input type="text" name="description" value="${requestScope['product'].description}"><br>
     <lable>Category</lable><br>
-    <input type="text" name="categoryId" required value="${requestScope['product'].categoryId}"><br>
+    <select name="categoryId">
+        <c:forEach items="${requestScope['categories']}" var="category">
+            <option value="${category.id}"
+                    <c:if test="${product.categoryId == category.id}"> selected="selected" </c:if>
+            >
+                ${category.name}
+            </option>
+        </c:forEach>
+    </select>
     <input type="submit" value="Update" class="btn btn-success">|<a href="/products" class="btn btn-secondary">Back</a><br>
 </form>
 </body>
